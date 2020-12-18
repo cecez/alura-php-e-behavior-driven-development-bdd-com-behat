@@ -12,8 +12,9 @@
 
 <?php if (isset($_SESSION['logado'])): ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse d-flex justify-content-between">
         <a class="navbar-brand mr-auto" href="/listar-cursos">Cursos</a>
+        <a class="navbar-brand mr-auto" href="/listar-formacoes">Formações</a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Sair</a>
