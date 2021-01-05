@@ -1,13 +1,17 @@
 <?php
 
+use Alura\Armazenamento\Infra\EntitymanagerCreator;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Defines application features from the specific context.
  */
 class FeatureContext implements Context
 {
+    private EntityManagerInterface $em;
+
     /**
      * Initializes context.
      *
@@ -40,7 +44,7 @@ class FeatureContext implements Context
      */
     public function queEstouConectadoAoBancoDeDados()
     {
-        throw new PendingException();
+        $this->em = (new EntitymanagerCreator())->getEntityManager();
     }
 
     /**
