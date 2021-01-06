@@ -1,5 +1,6 @@
 <?php
 
+use Alura\Armazenamento\Entity\Formacao;
 use Alura\Armazenamento\Infra\EntitymanagerCreator;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
@@ -24,11 +25,15 @@ class FeatureContext implements Context
     }
 
     /**
-     * @When eu tentar criar uma formação com a descrição :arg1
+     * @When eu tentar criar uma formação com a descrição :descricao
      */
-    public function euTentarCriarUmaFormacaoComADescricao($arg1)
+    public function euTentarCriarUmaFormacaoComADescricao(string $descricao)
     {
-        throw new PendingException();
+        $formacao = new Formacao();
+        $formacao->setDescricao($descricao);
+
+        $this->em->persist($formacao);
+        $this->em->flush();
     }
 
     /**
@@ -48,11 +53,15 @@ class FeatureContext implements Context
     }
 
     /**
-     * @When tento criar uma nova formação com a descrição :arg1
+     * @When tento salvar uma nova formação com a descrição :descricao
      */
-    public function tentoCriarUmaNovaFormacaoComADescricao($arg1)
+    public function tentoSalvarUmaNovaFormacaoComADescricao(string $descricao)
     {
-        throw new PendingException();
+        $formacao = new Formacao();
+        $formacao->setDescricao($descricao);
+
+        $this->em->persist($formacao);
+        $this->em->flush();
     }
 
     /**
