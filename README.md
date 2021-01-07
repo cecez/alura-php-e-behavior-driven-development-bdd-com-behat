@@ -44,3 +44,9 @@ docker run -itv $(pwd):/app -w /app -u $(id -u):$(id -g) -p 8080:8080 php:latest
 ```
 
 Pronto! Basta acessar no seu navegador o endereço http://localhost:8080/ e começar a interagir com o sistema.
+
+## Outros comandos
+
+Executando os testes com Behat:
+
+`docker run --rm -itv $(pwd):/app -w /app -u $(id -u):$(id -g) php:latest php vendor/bin/behat`
