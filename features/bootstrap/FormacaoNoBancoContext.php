@@ -9,43 +9,10 @@ use Doctrine\ORM\EntityManagerInterface;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+class FormacaoNoBancoContext implements Context
 {
     private EntityManagerInterface $em;
-    private string $_mensagemDeErro = '';
     private ?int $_idFormacaoInserida;
-
-    /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
-     * @When eu tentar criar uma formação com a descrição :descricao
-     */
-    public function euTentarCriarUmaFormacaoComADescricao(string $descricao)
-    {
-        $formacao = new Formacao();
-        try {
-            $formacao->setDescricao($descricao);
-        } catch (\InvalidArgumentException $e) {
-            $this->_mensagemDeErro = $e->getMessage();
-        }
-    }
-
-    /**
-     * @Then eu vou ver a seguinte mensagem e erro :mensagemDeErro
-     */
-    public function euVouVerASeguinteMensagemEErro(string $mensagemDeErro)
-    {
-        assert($mensagemDeErro === $this->_mensagemDeErro);
-    }
 
     /**
      * @Given que estou conectado ao banco de dados
