@@ -47,14 +47,22 @@ Pronto! Basta acessar no seu navegador o endereço http://localhost:8080/ e come
 
 ## Outros comandos
 
-Executando os testes com Behat:
-
+Observação: prefixo para testes executados com Docker:
 ```
-docker run --rm -itv $(pwd):/app -w /app -u $(id -u):$(id -g) php:latest php vendor/bin/behat`
+docker run --rm -itv $(pwd):/app -w /app -u $(id -u):$(id -g) php:latest "comando"
+```
+
+Executando os testes com Behat:
+```
+php vendor/bin/behat
 ```
 
 Gerando snippets para itens de cenário não existentes:
-
 ```
-docker run --rm -itv $(pwd):/app -w /app -u $(id -u):$(id -g) php:latest php vendor/bin/behat --append-snippets --dry-run --snippets-for=FormacaoEmMemoriaContext
+php vendor/bin/behat --append-snippets --dry-run --snippets-for=FormacaoEmMemoriaContext
+```
+
+Executando testes apenas da suíte "unidade":
+```
+php vendor/bin/behat -s unidade
 ```
