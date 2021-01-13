@@ -66,3 +66,11 @@ Executando testes apenas da suíte "unidade":
 ```
 php vendor/bin/behat -s unidade
 ```
+
+Instalando dependências para testes com Mink
+
+Antes de mais nada, é preciso instalar os componentes utilizados pelo sistema. Para isso, execute:
+
+```
+$ docker run --rm -itv $(pwd):/app -w /app -u $(id -u):$(id -g) composer require --dev behat/mink
+```
