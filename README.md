@@ -76,3 +76,9 @@ $ docker run --rm -itv $(pwd):/app -w /app -u $(id -u):$(id -g) composer require
 ```
 
 Para rodar os testes que exigem o servidor ligado, entrar no docker, ligar o servidor em backgroud e rodar os testes.
+
+Listagem de possíveis testes com MinkExtension
+
+````
+php vendor/bin/behat -dl --lang=pt
+````
